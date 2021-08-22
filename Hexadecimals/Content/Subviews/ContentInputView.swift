@@ -26,10 +26,12 @@ struct ContentInputView: View {
                     TextField("F", text: $input)
                         .foregroundColor(.input)
                         .font(.system(size: 18, weight: .bold, design: .default))
+                        .autocapitalization(.allCharacters)
+                        .disableAutocorrection(true)
                 }
             }
             Rectangle()
-                .fill(.gray)
+                .fill(Color.gray)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 1, maxHeight: 1)
         }
     }

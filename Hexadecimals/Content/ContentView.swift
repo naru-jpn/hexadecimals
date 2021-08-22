@@ -31,10 +31,13 @@ struct ContentView: View {
             }
             .navigationTitle("Hexadecimals")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(trailing: HStack {
-                Button(action: viewModel.share) { Image(systemName: "square.and.arrow.up") }
-            })
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: viewModel.share) { Image(systemName: "square.and.arrow.up") }
+                }
+            }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $viewModel.isSheetPresented) {
             ShareSheet(activityItems: [viewModel.sharedContent])
         }
