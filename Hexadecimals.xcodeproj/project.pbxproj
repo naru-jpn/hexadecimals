@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43374CB226D1E35F000940B4 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43374CB026D1D882000940B4 /* Device.swift */; };
 		4397C1AC26D1A4A400F4A785 /* HexadecimalsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4397C1AB26D1A4A400F4A785 /* HexadecimalsApp.swift */; };
 		4397C1B026D1A4A500F4A785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4397C1AF26D1A4A500F4A785 /* Assets.xcassets */; };
 		4397C1B326D1A4A500F4A785 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4397C1B226D1A4A500F4A785 /* Preview Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43374CB026D1D882000940B4 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		4397C1A826D1A4A400F4A785 /* Hexadecimals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hexadecimals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4397C1AB26D1A4A400F4A785 /* HexadecimalsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexadecimalsApp.swift; sourceTree = "<group>"; };
 		4397C1AF26D1A4A500F4A785 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				43CDAC9326D1A68400D931B7 /* CallStackRecoder.swift */,
+				43374CB026D1D882000940B4 /* Device.swift */,
 				43CDAC9426D1A68400D931B7 /* SignalExceptionHandler.swift */,
 			);
 			path = Support;
@@ -208,6 +211,7 @@
 				43CDAC9026D1A67E00D931B7 /* View.swift in Sources */,
 				43CDAC9526D1A68400D931B7 /* CallStackRecoder.swift in Sources */,
 				43CDAC8526D1A66700D931B7 /* ContentInputView.swift in Sources */,
+				43374CB226D1E35F000940B4 /* Device.swift in Sources */,
 				43CDAC8626D1A66700D931B7 /* ContentOutputView.swift in Sources */,
 				43CDAC8826D1A66700D931B7 /* ContentView.swift in Sources */,
 				4397C1AC26D1A4A400F4A785 /* HexadecimalsApp.swift in Sources */,

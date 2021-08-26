@@ -16,7 +16,8 @@ final class CallStackRecoder {
         dateFormatter.dateFormat = "YYYY/MM/dd HH:mm:ss"
         let date = dateFormatter.string(from: Date())
         let callstack = Thread.callStackSymbols.joined(separator: "\n")
-        let row = "\(date),\(UIDevice.current.modelName),\(callstack)"
+        let device = Device.current
+        let row = "\(date),\(device.model.name),\(device.model.architecture),\"\(callstack)\""
 
         var current = UserDefaults.standard.value(forKey: key) as? [String] ?? []
         current.append(row)
@@ -25,20 +26,5 @@ final class CallStackRecoder {
 
     class func read() -> [String] {
         UserDefaults.standard.value(forKey: key) as? [String] ?? []
-    }
-}
-
-private extension UIDevice {
-    var modelName: String {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        let machineMirror = Mirror(reflecting: systemInfo.machine)
-        let identifier = machineMirror.children.reduce("") { identifier, element in
-            guard let value = element.value as? Int8, value != 0 else {
-                return identifier
-            }
-            return identifier + String(UnicodeScalar(UInt8(value)))
-        }
-        return identifier
     }
 }
