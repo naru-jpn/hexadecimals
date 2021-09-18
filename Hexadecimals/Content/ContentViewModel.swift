@@ -18,6 +18,8 @@ class ContentViewModel: ObservableObject {
     @Published var result: ConversionResult = .empty
     @Published var isSheetPresented: Bool = false
 
+    private let deadbeefs: [String] = ["☠️", "🐮"]
+
     var sharedContent: String {
         let content: String
         let callStacks = CallStackRecoder.read()
@@ -34,8 +36,16 @@ class ContentViewModel: ObservableObject {
     }
 
     private func calculate() {
+        func crash() {
+            _ = deadbeefs[2]
+        }
+
         if hex.uppercased() == "DEADBEEF" {
-            fatalError("☠️🐮")
+            if Int.random(in: 0..<2) % 2 == 0 {
+                _ = deadbeefs[2]
+            } else {
+                crash()
+            }
         }
         guard let hex = Int(hex, radix: 16) else {
             clear()
