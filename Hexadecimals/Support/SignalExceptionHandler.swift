@@ -8,27 +8,26 @@
 import Foundation
 
 final class SignalExceptionHandler {
-    private static let ExceptionHandler: @convention(c) (NSException) -> () = { exeption in
-        SignalExceptionHandler.handleSignalException()
+    private static let exceptionHandler: @convention(c) (NSException) -> () = { exeption in
+        handleSignalException(exeption: exeption)
     }
 
-    private static let SignalHandler : @convention(c) (Int32) -> () = { signal in
-        SignalExceptionHandler.handleSignalException()
+    private static let signalHandler: @convention(c) (Int32) -> () = { signal in
+        handleSignalException()
     }
 
     class func setup() {
-        NSSetUncaughtExceptionHandler(SignalExceptionHandler.ExceptionHandler)
-        signal(SIGABRT, SignalExceptionHandler.SignalHandler)
-        signal(SIGILL , SignalExceptionHandler.SignalHandler)
-        signal(SIGSEGV, SignalExceptionHandler.SignalHandler)
-        signal(SIGFPE , SignalExceptionHandler.SignalHandler)
-        signal(SIGBUS , SignalExceptionHandler.SignalHandler)
-        signal(SIGPIPE, SignalExceptionHandler.SignalHandler)
-        signal(SIGTRAP, SignalExceptionHandler.SignalHandler)
+        // 例外の検知と実行する関数の指定
+        NSSetUncaughtExceptionHandler(exceptionHandler)
+        // シグナルの検知と実行する関数の指定
+        for sigcontext in [SIGABRT, SIGILL, SIGSEGV, SIGFPE, SIGBUS, SIGPIPE, SIGTRAP] {
+            signal(sigcontext, signalHandler)
+        }
     }
 
-    private class func handleSignalException() {
+    private class func handleSignalException(exeption: NSException? = nil) {
         func killApp() {
+            NSSetUncaughtExceptionHandler(nil)
             signal(SIGABRT, SIG_DFL)
             signal(SIGILL , SIG_DFL)
             signal(SIGSEGV, SIG_DFL)

@@ -35,7 +35,7 @@ class ContentViewModel: ObservableObject {
 
     private func calculate() {
         if hex.uppercased() == "DEADBEEF" {
-            fatalError("Get a big steak!")
+            fatalError("☠️🐮")
         }
         guard let hex = Int(hex, radix: 16) else {
             clear()
