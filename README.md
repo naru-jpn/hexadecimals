@@ -16,3 +16,7 @@ https://testflight.apple.com/join/s1rHtSt4
 
 - [naru-jpn/CallStackSymbol](https://github.com/naru-jpn/CallStackSymbols)
 - [naru-jpn/Symbolicator](https://github.com/naru-jpn/Symbolicator)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
